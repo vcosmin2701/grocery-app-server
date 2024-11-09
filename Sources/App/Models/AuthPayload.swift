@@ -6,12 +6,10 @@ struct AuthPayload: JWTPayload {
     typealias Payload = AuthPayload
     
     enum CodingKeys: String, CodingKey {
-        case subject = "sub"
         case expiration = "exp"
         case userId = "uid"
     }
     
-    var subject: SubjectClaim
     var expiration: ExpirationClaim
     var userId: UUID
     
