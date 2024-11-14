@@ -1,6 +1,7 @@
 import Foundation
 import Fluent
 import Vapor
+import grocery_app_shared_dto
 
 class UserController: RouteCollection, @unchecked Sendable {
     
@@ -37,7 +38,7 @@ class UserController: RouteCollection, @unchecked Sendable {
         // save the user to database
         try await user.save(on: req.db)
         
-        return RegisterResponseDTO(error: false)
+        return try RegisterResponseDTO(from: false as! Decoder)
     }
     
     @Sendable
